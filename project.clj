@@ -4,5 +4,6 @@
                  [noir "1.3.0-beta3"]
                  [korma "0.3.0-beta9"]
                  [lobos "1.0.0-SNAPSHOT"]
-                 [mysql/mysql-connector-java  "5.1.21"]]
+                 [mysql/mysql-connector-java  "5.1.21"]
+                 [org.clojure/tools.cli "0.2.2"]]
   :main website.server)
