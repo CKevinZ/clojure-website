@@ -27,6 +27,7 @@
   (up [] (create
            (table! :images
              (integer :post_id [:refer :posts :id] :not-null)
+             (varchar :path 255 :not-null)
              (integer :size :not-null)
              (integer :width :not-null)
              (integer :height :not-null))))
