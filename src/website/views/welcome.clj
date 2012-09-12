@@ -1,7 +1,7 @@
 (ns website.views.welcome
-  (:require [website.views.common :as common])
-  (:use [noir.core :only [defpage]]))
+  (:use [noir.core :only [defpage]]
+        [website.views.common :only [main-layout]]))
 
-(defpage "/welcome" []
-         (common/layout
-           [:p "Welcome to website"]))
+(defpage root "/" []
+  (main-layout
+    [:p "Welcome to website"]))
