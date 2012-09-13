@@ -67,7 +67,20 @@
   (k/delete entity
     (k/where true)))
 
-(defmacro defmodel [name & args]
+(defmacro defmodel
+  "defmodel is a poweful macro which defines a korma entity
+  and declares useful functions partially applied to this entity.
+  Returns the defined entity.
+  ex: (ns website.models.user
+        (:use [website.util.model :only [defmodel]))
+      (defmodel users)
+
+      (ns website.foo.bar
+        (:require [website.models.user :as [user]))
+      (user/all) ; => [{:id 1 ...} {:id 2 ...} ...]
+      (user/insert {:name \"foo\" :password \"fdsvd32r343\" :email \"foo@bar.com\"})
+      (user/find-all-by :name \"foo\") ; => [{:id 3 :name \"foo\"} {:id 6 :name \"foo\"}]"
+  [name & args]
   `(do
     (k/defentity ~name ~@args)
     ~@(for [[fn-name body]

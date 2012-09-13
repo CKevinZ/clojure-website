@@ -1,4 +1,6 @@
 (ns lobos.exec
+  "This ns is mostly used directly in shell.
+  ex: $ lein run -m lobos.exec/migrate create-users create-posts"
   (:require [lobos.core :as lobos])
   (:use lobos.migrations))
 
